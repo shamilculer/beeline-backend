@@ -1,0 +1,16 @@
+services:
+  api-gateway:
+    build: ./api-gateway
+    environment:
+      NODE_ENV: development
+    ports:
+      - 8080:8080
+    depends_on:
+      - user-services
+
+  user-services:
+    build: ./services/user-service
+    environment:
+      NODE_ENV: development
+    ports:
+      - 3001:3001
